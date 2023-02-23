@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <!-- we import arjs version without NFT but with marker + location based support -->
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+
+<!--
+    <script>
+        // Workaround for an AR.js bug (https://github.com/jeromeetienne/AR.js/issues/410)
+        const sceneEl = document.querySelector('a-scene');
+        sceneEl.addEventListener('loaded', () => {
+            sceneEl.camera = new THREE.PerspectiveCamera();
+        });
+    </script>
+-->
+
+    <body style="margin : 0px; overflow: hidden;">
+        <a-scene embedded arjs>
+
+            <a-assets>
+                <a-asset-item id="minion-obj" src="3D-Models/Minion/minion for upload.obj"></a-asset-item>
+                <a-asset-item id="minion-mtl" src="3D-Models/Minion/minion for upload.mtl"></a-asset-item>
+            </a-assets>
+
+            <a-marker preset="hiro">
+                <!-- we use cors proxy to avoid cross-origin problems -->
+                <!--
+⚠️⚠️⚠️
+https://arjs-cors-proxy.herokuapp.com/ is now offline, Heroku has dismissed all his free plans from November 2022.
+You need to host your own proxy and use it instead. The proxy is based on CORS Anywhere (see https://github.com/Rob--W/cors-anywhere).
+⚠️⚠️⚠️
+-->
+                <!--
+<a-entity
+position="0 0 0"
+scale="0.05 0.05 0.05"
+gltf-model="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf"
+></a-entity>
+-->
+                <!--          <a-box position="0 0 0" rotation="0 0 0" color="#cccccc" depth="2" height="2" width="1"></a-box>-->
+
+                <a-entity text="value: Junshu &quot;Ted&quot; Liu; width: 8;" rotation="-90 0 0" position="0.5 0 0"></a-entity>
+
+                <!--
+<a-entity
+position="0 0 0"
+scale="0.05 0.05 0.05"
+gltf-model="3D-Models/Minion/minion for upload.obj"
+></a-entity>
+-->
+                <a-entity obj-model="obj: #minion-obj; mtl: #minion-mtl" scale="0.08 0.08 0.08"></a-entity>
+
+                <a-entity sound="src: Sound-Effects/welcome.m4a; autoplay: true"></a-entity>
+
+            </a-marker>
+            <a-entity camera></a-entity>
+        </a-scene>
+    </body>
+</html>
