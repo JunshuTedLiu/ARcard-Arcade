@@ -4,22 +4,13 @@
     <!-- we import arjs version without NFT but with marker + location based support -->
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
 
-<!--
-    <script>
-        // Workaround for an AR.js bug (https://github.com/jeromeetienne/AR.js/issues/410)
-        const sceneEl = document.querySelector('a-scene');
-        sceneEl.addEventListener('loaded', () => {
-            sceneEl.camera = new THREE.PerspectiveCamera();
-        });
-    </script>
--->
-
     <body style="margin : 0px; overflow: hidden;">
         <a-scene embedded arjs>
 
             <a-assets>
                 <a-asset-item id="minion-obj" src="3D-Models/Minion/minion for upload.obj"></a-asset-item>
                 <a-asset-item id="minion-mtl" src="3D-Models/Minion/minion for upload.mtl"></a-asset-item>
+<!--                <audio id="welcome" src="Sound-Effects/welcome.m4a" preload="auto"></audio>-->
             </a-assets>
 
             <a-marker preset="hiro">
@@ -50,7 +41,7 @@ gltf-model="3D-Models/Minion/minion for upload.obj"
 -->
                 <a-entity obj-model="obj: #minion-obj; mtl: #minion-mtl" scale="0.08 0.08 0.08"></a-entity>
 
-                <a-entity sound="src: Sound-Effects/welcome.m4a; autoplay: true"></a-entity>
+                <!--                <a-entity sound="src: url(Sound-Effects/welcome.m4a); autoplay: true"></a-entity>-->
 
             </a-marker>
             <a-entity camera></a-entity>
